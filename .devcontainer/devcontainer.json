@@ -1,16 +1,6 @@
 {
-  "name": "Netlify and Ably",
-  "runArgs": [
-    "--init"
-  ],
   "build": {
-    "dockerfile": "Dockerfile",
-    "args": {
-      // Update 'VARIANT' to pick a Node version: 16, 14, 12.
-      // Append -bullseye or -buster to pin to an OS version.
-      // Use -bullseye variants on local arm64/Apple Silicon.
-      "VARIANT": "16"
-    }
+    "dockerfile": "Dockerfile"
   },
   "forwardPorts": [
     8080,
@@ -31,7 +21,13 @@
       "onAutoForward": "ignore"
     }
   },
-  "settings": {},
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
+    }
+  },
   "postCreateCommand": "npm install",
-  "remoteUser": "node"
+  "remoteUser": "vscode"
 }

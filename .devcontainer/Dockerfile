@@ -1,7 +1,10 @@
-# Append -bullseye variants on local arm64/Apple Silicon.
+FROM alpine
 
-ARG VARIANT=16
-FROM mcr.microsoft.com/vscode/devcontainers/javascript-node:${VARIANT}
+RUN apk add --no-cache --update sudo git bash nodejs npm
 
-RUN su node -c "npm install -g npm"
-RUN su node -c "npm install -g netlify-cli"
+RUN sudo npm i -g netlify-cli
+
+RUN addgroup -g 1337 vscode && \
+    adduser -D -s /bin/bash -G vscode -u 1337 vscode && \
+    echo "vscode ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/vscode && \
+    chmod 0440 /etc/sudoers.d/vscode
