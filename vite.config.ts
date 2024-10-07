@@ -1,8 +1,8 @@
-import { defineConfig } from 'vite';
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react-swc'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  root: "app",
   server: {
     port: 8080,
     strictPort: true,
@@ -16,5 +16,5 @@ export default defineConfig({
     sourcemap: true,
     emptyOutDir: true
   },
-  plugins: []
+  plugins: [react()]
 })
