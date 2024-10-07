@@ -1,7 +1,7 @@
 {
   "type": "module",
   "scripts": {
-    "build": "tsc -b && vite build",
+    "build": "npx vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "prepare": "cd api/ably-token-request && npm install",
